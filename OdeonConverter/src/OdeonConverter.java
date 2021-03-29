@@ -54,6 +54,8 @@ import org.apache.poi.xssf.usermodel.XSSFCellStyle;
 import org.apache.poi.xssf.usermodel.XSSFColor;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
+import com.formdev.flatlaf.FlatIntelliJLaf;
+
 public class OdeonConverter extends JFrame {
 
 	/**
@@ -65,11 +67,11 @@ public class OdeonConverter extends JFrame {
         JTextField txtTituloPlanilha = new JTextField("", 40) {{ setPreferredSize(new Dimension(10, 30)); }};
         JButton btnSelecionarArquivo = new JButton("Escolher Arquivo", obterIcone("open.png")) {{ setIconTextGap(10); setHorizontalAlignment(SwingConstants.RIGHT); }};
 		JFileChooser filSelecionarArquivo = new JFileChooser() {
-			@Override
-			public void updateUI() {
-				putClientProperty("FileChooser.useShellFolder", Boolean.FALSE);
-				super.updateUI();
-			}
+//			@Override
+//			public void updateUI() {
+//				putClientProperty("FileChooser.useShellFolder", Boolean.FALSE);
+//				super.updateUI();
+//			}
 		};
         JTextField txtNomeArquivo = new JTextField("", 40) {{ setPreferredSize(new Dimension(10, 30)); }};
         JButton btnAdicionarArquivo = new JButton("Adicionar Arquivo", obterIcone("add-file.png")) {{ setIconTextGap(10); setHorizontalAlignment(SwingConstants.LEFT); }};
@@ -511,8 +513,8 @@ public class OdeonConverter extends JFrame {
 	}
 	
 	public static void main(String[] args) {
-	    try { 
-	        UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName()); 
+	    try {
+	        UIManager.setLookAndFeel(new FlatIntelliJLaf()); 
 	    } catch(Exception ignored) {
 	    	ignored.printStackTrace();
 	    }
